@@ -30,6 +30,6 @@ http://bookapi.kolsov.ru
 
 ### Testing
 
-Execute `bin/phpunitphp` to test project components.
+Execute `bin/phpunit` to test project components.
 
 
