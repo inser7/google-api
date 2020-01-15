@@ -1,7 +1,7 @@
 ## Task
 
 ```
-FBuild a books search. Using your service, users should be able to:
+Build a books search. Using your service, users should be able to:
  1. Find book by name and/or author
  2. Get list of books with preview and short description
  Feel free to add any features, such as modern interactive UI, tests, sorting, offline work and etc.
@@ -26,7 +26,7 @@ yarn run build
 
 ## Live demo
 
-http://googlebookapi.kolsov.ru
+http://bookapi.kolsov.ru
 
 ### Testing
 

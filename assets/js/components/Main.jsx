@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
 import Buttonext from './Buttonok';
 
@@ -32,7 +31,7 @@ class Main extends Component {
 
     clear_and_search() {
         // this.setState(initialState);
-        this.setState((prevState, props) => ({
+        this.setState((prevState) => ({
                 books: [],
                 page: 0,
                 total: 0,
@@ -51,7 +50,7 @@ class Main extends Component {
             })
             .then(books => {
                 //Fetched books is stored in the state
-                this.setState((prevState, props) => ({
+                this.setState((prevState) => ({
                         page: prevState.page + 1,
                         books : this.state.books.concat(books.items), 
                         totalItems: books.totalItems,
@@ -77,7 +76,7 @@ class Main extends Component {
 
     handleButton(event){
         event.preventDefault();
-        this.setState((prevState, props) => ({
+        this.setState((prevState) => ({
             page: prevState.page + 1,
             search_string: prevState.search_string
         }));  
@@ -92,7 +91,7 @@ class Main extends Component {
                 /* When using list you need to specify a key
                  * attribute that is unique for each list item
                  */
-                    <div key={index} className="col-lg-3 spaced">
+                    <div key={index} className="col-lg-3 col-sm-6 spaced">
                         <div className="card" >
                             { item.title !== undefined  &&
                                 <h2>{ item.title }</h2>
@@ -100,7 +99,7 @@ class Main extends Component {
                             <i>{ item.authors }</i>
                             Published on { item.publishedDate }
                             by { item.publisher }
-                            <img src={ item.image } className="card-img-top"/>
+                            <img src={ item.image } className="card-img-top" alt={'cover'}/>
                         </div>
                     </div>
 
