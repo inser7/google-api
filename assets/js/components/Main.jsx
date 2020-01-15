@@ -91,15 +91,21 @@ class Main extends Component {
                 /* When using list you need to specify a key
                  * attribute that is unique for each list item
                  */
-                    <div key={index} className="col-lg-3 col-sm-6 spaced">
-                        <div className="card" >
+                    <div key={index} className="col-lg-3 col-sm-6 mt-2 mb-2">
+                            <div class="card-header">
                             { item.title !== undefined  &&
                                 <h2>{ item.title }</h2>
                             }
-                            <i>{ item.authors }</i>
-                            Published on { item.publishedDate }
-                            by { item.publisher }
-                            <img src={ item.image } className="card-img-top" alt={'cover'}/>
+                            </div>
+                        <div class="card">
+                        <img src={ item.image } className="card-img-top" alt={'cover'}/>
+                            <div class="card-body">
+                                <i>{ item.authors }</i>
+                                <div>Published on { item.publishedDate }</div>
+                                { item.publisher !== undefined  &&
+                                     <div> by { item.publisher }</div>
+                                }
+                            </div>
                         </div>
                     </div>
 
