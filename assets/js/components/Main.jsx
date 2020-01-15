@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Buttonext from './Buttonok';
+import Booklist from "./Booklist";
 
 const initialState = {
     books: [],
@@ -83,36 +84,6 @@ class Main extends Component {
         this.search()
     }
 
-    renderProducts() {
-        console.log(this.state.books);
-        console.log(this.state.page);
-        return this.state.books.map((item,index) => {
-            return (
-                /* When using list you need to specify a key
-                 * attribute that is unique for each list item
-                 */
-                    <div key={index} className="col-lg-3 col-sm-6 mt-2 mb-2">
-                            <div class="card-header">
-                            { item.title !== undefined  &&
-                                <h2>{ item.title }</h2>
-                            }
-                            </div>
-                        <div class="card">
-                        <img src={ item.image } className="card-img-top" alt={'cover'}/>
-                            <div class="card-body">
-                                <i>{ item.authors }</i>
-                                <div>Published on { item.publishedDate }</div>
-                                { item.publisher !== undefined  &&
-                                     <div> by { item.publisher }</div>
-                                }
-                            </div>
-                        </div>
-                    </div>
-
-            );
-        })
-    }
-
     renderForm(){
         return(
             <form  onSubmit={this.handleSubmit} className="justify-content-center">
@@ -129,15 +100,11 @@ class Main extends Component {
                 { this.renderForm() }
                 <div className="row">
                     <div className="col-12">
-                            {/*<ProductList books ={ this.state.books } />*/}
                             {loading && this.state.isFormFired ? (
                                 <div className={'col text-center'}>
                                     <span className="fa fa-spin fa-spinner fa-4x"/>
                                 </div>
-                            ) : (<div className="row">
-                                    {this.renderProducts()}
-                                </div>)
-                            }
+                            ) : (<Booklist books = {this.state.books} />)}
                         </div>
                     <Buttonext page ={this.state.page}
                                isFormFired = {this.state.isFormFired}
