@@ -16,7 +16,7 @@ class GoogleService implements ServiceInterface
         $this->downloader = $downloader;
     }
 
-    public function getData()
+    public function getBooks():Book
     {
         $data =  $this->downloader->get();
 

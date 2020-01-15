@@ -2,7 +2,9 @@
 
 namespace App\Service;
 
+use App\Utils\Book;
+
 interface ServiceInterface
 {
-    public function getData();
+    public function getBooks():Book;
 }
