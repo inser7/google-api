@@ -20,13 +20,13 @@ git clone https://github.com/inser7/google-api.git
 cd google-api
 composer install
 yarn install
-yarn run build
+yarn encore dev
 ```
 
 
 ## Live demo
 
-http://bookapi.kolsov.ru
+http://googleapi.kolsov.ru
 
 ### Testing
 
