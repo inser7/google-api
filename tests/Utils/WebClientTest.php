@@ -8,22 +8,23 @@ use App\Utils\WebClient;
 
 class WebClientTest extends TestCase
 {
-    private $webclient;
 
     protected function setUp()
     {
-        $this->webclient = new WebClient();
-        $this->webclient->setUrl('https://www.googleapis.com/books/v1/volumes?q=test&startIndex=10');
+
     }
 
 
     public function testGet()
     {
-        $this->webclient ->setUrl('https://www.googleapis.com/books/v1/volumes?q=test&startIndex=10');
-        $result = $this->downloader->get();
+        $webclient = new WebClient();
+        $webclient ->setUrl('https://www.googleapis.com/books/v1/volumes?q=test&startIndex=10');
+        $response = $webclient->get();
 
-        $this->assertIsString($result);
-        $this->assertJson($result);
+        $this->assertTrue(isset(json_decode($response)->items));
+
+        $this->assertIsString($response);
+
 
     }
 }
