@@ -13,7 +13,7 @@ class WebClient implements WebClientInterface
      * Numeric status code, 200: OK
      */
     const HTTP_OK = 200;
-    
+
     /**
      * Numeric status code, 201: Created
      */
@@ -38,7 +38,6 @@ class WebClient implements WebClientInterface
      * Numeric status code, 304: Not modified
      */
     const HTTP_NOT_MODIFIED = 304;
-
 
     /**
      * Numeric status code, 301 Moved permanently
