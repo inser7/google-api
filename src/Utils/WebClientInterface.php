@@ -6,5 +6,5 @@ namespace App\Utils;
 
 interface WebClientInterface
 {
-    public function get();
+    public function get():string;
 }

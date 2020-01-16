@@ -22,7 +22,6 @@ class WebClientTest extends TestCase
         $response = $webclient->get();
 
         $this->assertTrue(isset(json_decode($response)->items));
-
         $this->assertIsString($response);
 
 
