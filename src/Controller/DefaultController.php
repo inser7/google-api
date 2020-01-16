@@ -23,7 +23,7 @@ class DefaultController extends AbstractController
         if(!$string){
             return new JsonResponse();
         }
-        $service->downloader->setUrl(sprintf($this->getParameter('api_url_mask'), $this->getParameter('api_url'), $string, $page*10));
+        $service->webclient->setUrl(sprintf($this->getParameter('api_url_mask'), $this->getParameter('api_url'), $string, $page*10));
         return new JsonResponse($service->getBooks());
     }
 

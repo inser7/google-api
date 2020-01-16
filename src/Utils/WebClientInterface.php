@@ -4,7 +4,7 @@
 namespace App\Utils;
 
 
-interface DownloaderInterface
+interface WebClientInterface
 {
     public function get();
 }

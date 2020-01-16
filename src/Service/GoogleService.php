@@ -4,21 +4,21 @@ namespace App\Service;
 
 use App\Utils\Book;
 use App\Utils\BookSetting;
-use App\Utils\DownloaderInterface;
+use App\Utils\WebClientInterface;
 
 
 class GoogleService implements ServiceInterface
 {
-    public $downloader;
+    public $webclient;
 
-    public function __construct(DownloaderInterface $downloader)
+    public function __construct(WebClientInterface $webclient)
     {
-        $this->downloader = $downloader;
+        $this->webclient = $webclient;
     }
 
     public function getBooks():Book
     {
-        $data =  $this->downloader->get();
+        $data =  $this->webclient->get();
 
         $mapper = new \JsonMapper();
         $mapper->undefinedPropertyHandler = 'App\Utils\BookSetting::setUndefinedProperty';

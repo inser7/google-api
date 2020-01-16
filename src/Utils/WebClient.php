@@ -4,7 +4,7 @@ namespace App\Utils;
 
 use Symfony\Component\HttpClient\HttpClient;
 
-class Downloader implements DownloaderInterface
+class WebClient implements WebClientInterface
 {
     private $url;
 
