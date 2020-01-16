@@ -32,9 +32,6 @@ render() {
                                                             <p>by {item.publisher}</p>
                                                         }
                                                 </div>
-                                                <div className="media-right align-self-center">
-                                                        
-                                                    </div>
                                                 </div>
                                             </li>
                                         </ul>
