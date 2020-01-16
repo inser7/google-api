@@ -7,33 +7,46 @@ class Booklist extends Component {
         super(props)
     }
 
-    render() {
-        return (
-            <div className={'row'}>
-                {this.props.books.map((item,index)  =>
-                    <div key={index} className="col-lg-3 col-sm-6 mt-2 mb-2">
-                        <div className="card-header">
-                            {item.title !== undefined &&
-                            <h2>{item.title}</h2>
-                            }
-                        </div>
-                        <div className="card">
-                            <img src={item.image} className="card-img-top" alt={'cover'}/>
-                            <div className="card-body">
-                                <i>{item.authors}</i>
-                                <div>Published on {item.publishedDate}</div>
-                                {item.publisher !== undefined &&
-                                <div> by {item.publisher}</div>
-                                }
+render() {
+    return(
+        <div>
+            <section className="row-section">
+                <div className="container">
+                        <div className={'row'}>
+                            { this.props.books.map((item,index)=>
+                                <div className="col-md-10 offset-md-1 row-block" key={index}>
+                                    <ul id="sortable">
+                                        <li>
+                                            <div className="media">
+                                                <div className="media-left align-self-center">
+                                                    <img 
+                                                         src={item.image}/>
+                                                </div>
+                                                <div className="media-body">
+                                                    {item.title !== undefined &&
+                                                        <h4>{item.title}</h4>
+                                                        }
+                                                        <p>{item.authors}</p>
+                                                        <p>Published on {item.publishedDate}</p>
+                                                        {item.publisher  &&
+                                                            <p>by {item.publisher}</p>
+                                                        }
+                                                </div>
+                                                <div className="media-right align-self-center">
+                                                        
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                )}
                             </div>
-                        </div>
+                        
                     </div>
-                )}
+                </section>
             </div>
         )
     }
-
-
 }
 
 export default Booklist
