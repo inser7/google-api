@@ -8,13 +8,6 @@ use App\Utils\WebClient;
 
 class WebClientTest extends TestCase
 {
-
-    protected function setUp()
-    {
-
-    }
-
-
     public function testGet()
     {
         $webclient = new WebClient();

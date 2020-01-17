@@ -19,11 +19,11 @@ class DefaultController extends AbstractController
     public function getBooks(Request $request, ServiceInterface $service):JsonResponse
     {
         $page = $request->query->get('page', 1);
-        $string = $request->query->get('q', false);
-        if(!$string){
+        $queryString = $request->query->get('q', false);
+        if(!$queryString){
             return new JsonResponse();
         }
-        $service->webclient->setUrl(sprintf($this->getParameter('api_url_mask'), $this->getParameter('api_url'), $string, $page*10));
+        $service->webclient->setUrl(sprintf($this->getParameter('api_url_mask'), $this->getParameter('api_url'), $queryString, $page*10));
         return new JsonResponse($service->getBooks());
     }
 
