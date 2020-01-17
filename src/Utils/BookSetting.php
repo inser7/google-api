@@ -12,7 +12,6 @@ class BookSetting
      */
     public $id;
 
-    // TODO: map here with class-to-attribute mechanism
     public static function setUndefinedProperty($object, $propName, $jsonValue)
     {
         if ($propName === 'volumeInfo') {
