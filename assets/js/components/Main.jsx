@@ -21,7 +21,7 @@ class Main extends Component {
         this.state = initialState;
         this.inputField = React.createRef();
         this.handleSubmit = this.handleSubmit.bind(this);
-    }s
+    }
 
     search(valueInput) {
         /* fetch API in action */
