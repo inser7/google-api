@@ -8,8 +8,8 @@ const initialState = {
     page: 0,
     total: 0,
     isFormFired: false,
-    search_string: '',
-    loading: true
+    loading: true,
+    search_string:""
 };
 
 /* Main Component */
@@ -19,33 +19,17 @@ class Main extends Component {
         super(props);
         //Initialize the state in the constructor
         this.state = initialState;
+        this.inputField = React.createRef();
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleInput = this.handleInput.bind(this);
-        this.handleButton = this.handleButton.bind(this);
-    }
-    /*componentDidMount() is a lifecycle method
-     * that gets called after the component is rendered
-     */
+    }s
 
-    componentDidMount() {
-    }
-
-    clear_and_search() {
-        // this.setState(initialState);
-        this.setState((prevState) => ({
-                books: [],
-                page: 0,
-                total: 0,
-                isFormFired: true,
-                search_string: prevState.search_string,
-                loading: true
-        }));
-        this.search();
-    }
-
-    search() {
+    search(valueInput) {
         /* fetch API in action */
-        fetch('/api/getbooks?q='+this.state.search_string +'&page='+this.state.page)
+        this.setState({
+            search_string:valueInput,
+            isFormFired: true
+        });
+        fetch('/api/getbooks?q='+valueInput +'&page='+this.state.page)
             .then(response => {
                 return response.json();
             })
@@ -63,32 +47,15 @@ class Main extends Component {
     handleSubmit(event) {
          //preventDefault prevents page reload   
         event.preventDefault();
-        this.clear_and_search()
-    }
-
-    handleInput(event) {
-     
-        /*Duplicating and updating the state */
-        this.setState({ 
-            search_string:event.target.value}, () => {
-                console.log(this.state.search_string)
-            });
-    }
-
-    handleButton(event){
-        event.preventDefault();
-        this.setState((prevState) => ({
-            page: prevState.page + 1,
-            search_string: prevState.search_string
-        }));  
-        this.search()
+        const valueInput = this.refs.inputField.value;
+        this.search(valueInput);
     }
 
     renderForm(){
         return(
             <form  onSubmit={this.handleSubmit} className="justify-content-center">
                 <div className="col-8 mt-3 mb-2 offset-lg-2">
-                        <input type="text" className="form-control" placeholder="Search here..." aria-label="Search here" onChange={(e)=>this.handleInput(e)}   />
+                        <input type="text" ref="inputField" className="form-control" placeholder="Search here..." aria-label="Search here" />
                 </div>
             </form>);
     }
@@ -115,7 +82,7 @@ class Main extends Component {
     }
 
     handleButtonNextClick(){
-        this.search();
+        this.search(this.state.search_string);
     }
 }
 
