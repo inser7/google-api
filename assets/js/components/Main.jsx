@@ -8,7 +8,7 @@ const initialState = {
     page: 0,
     total: 0,
     isFormFired: false,
-    loading: true,
+    loading: false,
     search_string:""
 };
 
@@ -44,8 +44,12 @@ class Main extends Component {
     handleSubmit(event) {
          //preventDefault prevents page reload   
         event.preventDefault();
+        this.setState({
+            loading:true, 
+            isFormFired:true
+        })
+
         const valueInput = this.refs.inputField.value;
-        debugger;
         if(valueInput.trim() != ""){
             this.search(valueInput);
         }
