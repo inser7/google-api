@@ -45,7 +45,10 @@ class Main extends Component {
          //preventDefault prevents page reload   
         event.preventDefault();
         const valueInput = this.refs.inputField.value;
-        this.search(valueInput);
+        debugger;
+        if(valueInput.trim() != ""){
+            this.search(valueInput);
+        }
     }
 
     renderForm(){
