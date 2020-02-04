@@ -25,10 +25,6 @@ class Main extends Component {
 
     search(valueInput) {
         /* fetch API in action */
-        this.setState({
-            search_string:valueInput,
-            isFormFired: true
-        });
         fetch('/api/getbooks?q='+valueInput +'&page='+this.state.page)
             .then(response => {
                 return response.json();
@@ -39,7 +35,8 @@ class Main extends Component {
                         page: prevState.page + 1,
                         books : this.state.books.concat(books.items), 
                         totalItems: books.totalItems,
-                        loading: false
+                        loading: false,
+                        search_string:valueInput,
                 }));
             });
     }
