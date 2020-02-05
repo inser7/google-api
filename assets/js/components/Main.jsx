@@ -23,9 +23,9 @@ class Main extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    search(valueInput) {
+    search(value) {
         /* fetch API in action */
-        fetch('/api/getbooks?q='+valueInput +'&page='+this.state.page)
+        fetch('/api/getbooks?q='+value +'&page='+this.state.page)
             .then(response => {
                 return response.json();
             })
@@ -36,7 +36,7 @@ class Main extends Component {
                         books : this.state.books.concat(books.items), 
                         totalItems: books.totalItems,
                         loading: false,
-                        search_string:valueInput,
+                        search_string:value,
                 }));
             });
     }
