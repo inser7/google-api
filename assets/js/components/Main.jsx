@@ -8,7 +8,7 @@ const initialState = {
     page: 0,
     total: 0,
     isFormFired: false,
-    loading: false,
+    loading: true,
     search_string:""
 };
 
@@ -45,7 +45,6 @@ class Main extends Component {
          //preventDefault prevents page reload   
         event.preventDefault();
         this.setState({
-            loading:true, 
             isFormFired:true
         })
 
